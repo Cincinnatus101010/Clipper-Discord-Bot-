@@ -1,0 +1,31 @@
+{
+	"name": "clipper-discord-bot",
+	"version": "1.0.0",
+	"description": "Discord bot that downloads media with yt-dlp — no backend required",
+	"type": "module",
+	"scripts": {
+		"start": "bun run src/index.ts",
+		"register-commands": "bun run src/register-commands.ts",
+		"typecheck": "tsc --noEmit",
+		"docker:up": "docker compose up -d --build",
+		"docker:down": "docker compose down",
+		"docker:logs": "docker compose logs -f bot",
+		"docker:register": "docker compose run --rm bot register"
+	},
+	"keywords": ["discord", "discord-bot", "yt-dlp", "typescript", "bun", "docker"],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Cincinnatus101010/Clipper-Discord-Bot-.git"
+	},
+	"engines": {
+		"bun": ">=1.0"
+	},
+	"dependencies": {
+		"discord.js": "^14.22.1"
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"typescript": "^5.9.2"
+	}
+}

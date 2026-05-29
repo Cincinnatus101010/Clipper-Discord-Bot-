@@ -1,0 +1,29 @@
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: clipper-discord-bot:latest
+    container_name: clipper-discord-bot
+    env_file:
+      - path: .env
+        required: true
+    environment:
+      DOWNLOAD_DIR: /tmp/downloads
+      # Mount cookies/ytdlp.txt and uncomment in .env:
+      # YTDLP_COOKIES_FILE: /app/cookies/ytdlp.txt
+    volumes:
+      - bot-data:/app/data
+      - ./cookies:/app/cookies:ro
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  bot-data:
+    name: clipper-discord-bot-data

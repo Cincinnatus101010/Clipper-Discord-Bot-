@@ -1,0 +1,11 @@
+.git
+.github
+node_modules
+data
+.env
+.env.*
+!.env.example
+*.log
+README.md
+LICENSE
+cookies/ytdlp.txt
